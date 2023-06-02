@@ -6,7 +6,6 @@ const appSlice = createSlice({
   initialState: { query: '', results: [], latestSearches: [] } as AppState,
   reducers: {
     search: (state, action: PayloadAction<string>) => {
-      console.log('search',state);
       state.query = action.payload;
     },
     searchSuccess: (state, action: PayloadAction<Result[]>) => {
