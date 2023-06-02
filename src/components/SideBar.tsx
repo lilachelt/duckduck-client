@@ -2,9 +2,16 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { Typography } from '@mui/material';
+import { lastSearchAction } from '../actions/searchAction';
+import { useDispatch } from 'react-redux';
 
 const Sidebar: React.FC = () => {
-  const latestSearches = useSelector((state: RootState) => state.reducer.latestSearches);
+  const { latestSearches } = useSelector((state: RootState) => state.reducer);
+  const dispatch = useDispatch();
+
+  const handleClick = (search: string): any => {
+    dispatch(lastSearchAction(search));
+  }
 
   return (
     <div>
@@ -12,7 +19,7 @@ const Sidebar: React.FC = () => {
       <ul>
         {latestSearches.map((search:any, index:any) => (
           <li key={index}>
-            <Typography>{search}</Typography>
+            <Typography onClick={()=> handleClick(search)} >{search}</Typography>
           </li>
         ))}
       </ul>
