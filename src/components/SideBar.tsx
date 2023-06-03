@@ -4,6 +4,8 @@ import { RootState } from '../store';
 import { Typography } from '@mui/material';
 import { lastSearchAction } from '../actions/searchAction';
 import { useDispatch } from 'react-redux';
+import '../css/basic.css';
+import '../css/sideBar.css';
 
 const Sidebar: React.FC = () => {
   const { latestSearches } = useSelector((state: RootState) => state.reducer);
@@ -15,14 +17,15 @@ const Sidebar: React.FC = () => {
 
   return (
     <div>
-      <Typography variant="h6">Last Searches:</Typography>
+      <h2>My latest searces:</h2>
       <ul>
         {latestSearches.map((search:any, index:any) => (
           <li key={index}>
-            <Typography onClick={()=> handleClick(search)} >{search}</Typography>
+            <Typography className='last_search' onClick={()=> handleClick(search)} >{search}</Typography>
           </li>
         ))}
       </ul>
+      {/* <Typography className='no_found'> There is no yet latest searches</Typography> */}
     </div>
   );
 };

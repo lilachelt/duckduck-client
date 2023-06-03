@@ -3,6 +3,8 @@ import { RootState } from '../store';
 import { Box, Link, Typography } from '@mui/material';
 import Pagination from './Pagination';
 import '../css/Results.css';
+import '../css/basic.css';
+
 import React, { useEffect, useState } from 'react';
 
 const Results: React.FC = () => {
@@ -24,10 +26,10 @@ const Results: React.FC = () => {
   };
 
 
-  function markQuery(title : string) {
+  const markQuery = (title : string) => {
     const regex = new RegExp(`(${query})`, 'gi');
     const parts = title.split(regex);
-  
+
     return (
       <span>
         {parts.map((part, index) =>
@@ -36,7 +38,7 @@ const Results: React.FC = () => {
       </span>
     );
   }
-  const shouldDisplayError = () => !results.length && query !== '';
+  const shouldDisplayError = () => !results.length && query;
 
   return (
     <Box mt={2}>
@@ -48,7 +50,7 @@ const Results: React.FC = () => {
         </div>
       ))}
       <div>
-     {shouldDisplayError() && <Typography> No results founds</Typography>}
+     {shouldDisplayError() && <Typography className='no_found'> No results founds</Typography>}
       </div>
       <Pagination
         currentPage={currentPage}

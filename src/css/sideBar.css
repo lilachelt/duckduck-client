@@ -1,0 +1,8 @@
+.last_search {
+    color: #99b3ff;
+    text-decoration:underline;
+    cursor:pointer;
+  }
+  .last_search:hover { 
+    color:#4676b9; 
+  }
