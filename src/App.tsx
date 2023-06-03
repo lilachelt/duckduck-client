@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Grid } from '@mui/material';
 import Input from './components/Input';
 import Results from './components/Results';
-import Sidebar from './components/SideBar';
+import LatestSearches from './components/LatestSearches';
 
 const App: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const App: React.FC = () => {
             <Results />
           </Grid>
           <Grid item xs={6}>
-            <Sidebar />
+            <LatestSearches />
           </Grid>
         </Grid>
     </Container>
