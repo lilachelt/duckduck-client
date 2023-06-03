@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { Typography } from '@mui/material';
-import { lastSearchAction } from '../actions/searchAction';
+import { addLatestSearchesAction, loadLatestSearchesAction } from '../actions/searchAction';
 import { useDispatch } from 'react-redux';
 import '../css/basic.css';
 import '../css/sideBar.css';
 
-const Sidebar: React.FC = () => {
+const LatestSearches: React.FC = () => {
   const { latestSearchesQueries } = useSelector((state: RootState) => state.reducer);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(loadLatestSearchesAction())
+  },[]);
+
+
   const handleClick = (search: string): any => {
-    dispatch(lastSearchAction(search));
+    dispatch(addLatestSearchesAction(search));
   }
 
   return (
@@ -30,4 +35,8 @@ const Sidebar: React.FC = () => {
   );
 };
 
-export default Sidebar;
+export default LatestSearches;
+
+function lastestSearchLoad() {
+  throw new Error('Function not implemented.');
+}

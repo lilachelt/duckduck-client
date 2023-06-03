@@ -14,6 +14,9 @@ const appSlice = createSlice({
     addLatestSearch: (state, action: PayloadAction<string>) => {
       state.latestSearchesQueries.push(action.payload);
     },
+    lastestSearchLoad:(state, action: PayloadAction<any>) => {
+      state.latestSearchesQueries = action.payload;
+    },
   },
 });
 
