@@ -1,6 +1,6 @@
 export interface AppState {
     query: string;
-    results: Result[];
+    results: Topic[];
     latestSearches: string[];
   }
   
@@ -8,7 +8,7 @@ export interface AppState {
     type: 'SEARCH';
     payload: {
       query: string;
-      results: Result[];
+      results: Topic[];
     };
   }
   
@@ -21,9 +21,9 @@ export interface AppState {
   
  export type AppAction = SearchAction | AddLatestSearchAction;
   
- export interface Result {
+ export interface Topic {
     url: string;
     title: string;
   }
 
-  export type LatestSearches = {[key: string]: Result[];}
+  export type LatestSearches = {[key: string]: Topic[];}

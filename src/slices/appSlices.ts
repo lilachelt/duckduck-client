@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Result, AppState } from '../types'
+import { Topic, AppState } from '../types'
 
 const appSlice = createSlice({
   name: 'app',
@@ -8,7 +8,7 @@ const appSlice = createSlice({
     search: (state, action: PayloadAction<string>) => {
       state.query = action.payload;
     },
-    searchSuccess: (state, action: PayloadAction<Result[]>) => {
+    searchSuccess: (state, action: PayloadAction<Topic[]>) => {
       state.results = action.payload;
     },
     addLatestSearch: (state, action: PayloadAction<string>) => {

@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { Result, LatestSearches } from '../types';
+import { Topic, LatestSearches } from '../types';
 import { appSlice } from '../slices/appSlices';
 import { DUCK_DUCK_TOPICS_RESULTS, DUCK_DUCK_LATEST_SEARCHES } from '../const'
 const { search, searchSuccess, addLatestSearch } = appSlice.actions;
 
-const getApiResults = async (query:string) : Promise<Result[]> =>{
+const getApiResults = async (query:string) : Promise<Topic[]> =>{
   const response = await axios.get(`${DUCK_DUCK_TOPICS_RESULTS}${query}`);
   return response.data;
 }
