@@ -24,7 +24,7 @@ const LatestSearches: React.FC = () => {
     <div>
       <h2>My latest searces:</h2>
       <ul>
-        {latestSearchesQueries.map((search:any, index:any) => (
+        {latestSearchesQueries?.map((search:any, index:any) => (
           <li key={index}>
             <Typography className='last_search' onClick={()=> handleClick(search)} >{search}</Typography>
           </li>

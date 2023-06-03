@@ -19,7 +19,7 @@ const Results: React.FC = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  const paginatedData = results.slice(startIndex, endIndex);
+  const paginatedData = results?.slice(startIndex, endIndex);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -31,18 +31,18 @@ const Results: React.FC = () => {
 
     return (
       <span>
-        {parts.map((part, index) =>
+        {parts?.map((part, index) =>
           regex.test(part) ? <span key={index} className="marked">{part}</span> : part
         )}
       </span>
     );
   }
   
-  const shouldDisplayError = () => !results.length && query;
+  const shouldDisplayError = () => !results?.length && query;
 
   return (
     <Box mt={2}>
-      {paginatedData.map((item : any, index: number) => (
+      {paginatedData?.map((item : any, index: number) => (
         <div key={index} className='item'>
           <Link  href={item.url} target="_blank" rel="noopener">
           {markQuery(item.title)}
@@ -54,7 +54,7 @@ const Results: React.FC = () => {
       </div>
       <Pagination
         currentPage={currentPage}
-        totalPages={Math.ceil(results.length / itemsPerPage)}
+        totalPages={Math.ceil(results?.length / itemsPerPage)}
         onPageChange={handlePageChange}
       />
     </Box>
