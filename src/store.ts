@@ -1,5 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import { appSlice } from './slices/appSlices'
+import { appSlice } from './slices/appSlices';
+import { AppState } from './types';
+  
+export const initialState: AppState = {
+  query: '',
+  results: [],
+  latestSearches: [],
+};
+
 const store = configureStore({
   reducer: {
     reducer: appSlice.reducer

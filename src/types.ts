@@ -25,9 +25,5 @@ export interface AppState {
     url: string;
     title: string;
   }
-  
-  export const initialState: AppState = {
-    query: '',
-    results: [],
-    latestSearches: [],
-  };
+
+  export type LatestSearches = {[key: string]: Result[];}

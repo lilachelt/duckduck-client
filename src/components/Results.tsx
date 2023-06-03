@@ -19,7 +19,7 @@ const Results: React.FC = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  let paginatedData = results.slice(startIndex, endIndex);
+  const paginatedData = results.slice(startIndex, endIndex);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -38,13 +38,14 @@ const Results: React.FC = () => {
       </span>
     );
   }
+  
   const shouldDisplayError = () => !results.length && query;
 
   return (
     <Box mt={2}>
-      {paginatedData.map((item : any) => (
-        <div className='item'>
-          <Link href={item.url} target="_blank" rel="noopener">
+      {paginatedData.map((item : any, index: number) => (
+        <div key={index} className='item'>
+          <Link  href={item.url} target="_blank" rel="noopener">
           {markQuery(item.title)}
           </Link>
         </div>

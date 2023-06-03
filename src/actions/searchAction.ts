@@ -1,6 +1,6 @@
-import axios from "axios";
-import { Result } from "../types";
-import { appSlice } from "../slices/appSlices";
+import axios from 'axios';
+import { Result, LatestSearches } from '../types';
+import { appSlice } from '../slices/appSlices';
 import { DUCK_DUCK_TOPICS_RESULTS, DUCK_DUCK_LATEST_SEARCHES } from '../const'
 const { search, searchSuccess, addLatestSearch } = appSlice.actions;
 
@@ -9,7 +9,7 @@ const getApiResults = async (query:string) : Promise<Result[]> =>{
   return response.data;
 }
 
-const getLatestSearchesResultsFromFile = async () : Promise<any> =>{
+const getLatestSearchesResultsFromFile = async () : Promise<LatestSearches> =>{
   const response = await axios.post(`${DUCK_DUCK_LATEST_SEARCHES}`);
   return response.data;
 }
