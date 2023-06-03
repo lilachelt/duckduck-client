@@ -1,13 +1,19 @@
 import axios from "axios";
 import { Result } from "../types";
 import { appSlice } from "../slices/appSlices";
-
+import { DUCK_DUCK_TOPICS_RESULTS, DUCK_DUCK_LATEST_SEARCHES } from '../const'
 const { search, searchSuccess, addLatestSearch } = appSlice.actions;
 
 const getApiResults = async (query:string) : Promise<Result[]> =>{
-  const response = await axios.get(`http://localhost:1337/urlsAndTitles?q=${query}`);
+  const response = await axios.get(`${DUCK_DUCK_TOPICS_RESULTS}${query}`);
   return response.data;
 }
+
+const getLatestSearchesResultsFromFile = async () : Promise<any> =>{
+  const response = await axios.post(`${DUCK_DUCK_LATEST_SEARCHES}`);
+  return response.data;
+}
+
 export const queryAction = (
   query: string
 ): any => async (dispatch : any) => {
@@ -31,9 +37,9 @@ export const searchAction = (
     query: string
   ): any => async (dispatch : any) => {
     try {
-      const results  =await getApiResults(query)
+      const latestSearches = await getLatestSearchesResultsFromFile();
       dispatch(search(query));
-      dispatch(searchSuccess(results));
+      dispatch(searchSuccess(latestSearches[query]));
     } catch (error) {
       console.error('Error occurred while searching:', error);
     }
