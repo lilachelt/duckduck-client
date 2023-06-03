@@ -25,7 +25,6 @@ const Results: React.FC = () => {
     setCurrentPage(page);
   };
 
-
   const markQuery = (title : string) => {
     const regex = new RegExp(`(${query})`, 'gi');
     const parts = title.split(regex);

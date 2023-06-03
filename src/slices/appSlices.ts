@@ -3,7 +3,7 @@ import { Topic, AppState } from '../types'
 
 const appSlice = createSlice({
   name: 'app',
-  initialState: { query: '', results: [], latestSearches: [] } as AppState,
+  initialState: { query: '', results: [], latestSearchesQueries: [] } as AppState,
   reducers: {
     search: (state, action: PayloadAction<string>) => {
       state.query = action.payload;
@@ -12,7 +12,7 @@ const appSlice = createSlice({
       state.results = action.payload;
     },
     addLatestSearch: (state, action: PayloadAction<string>) => {
-      state.latestSearches.push(action.payload);
+      state.latestSearchesQueries.push(action.payload);
     },
   },
 });

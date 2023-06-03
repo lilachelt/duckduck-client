@@ -1,11 +1,6 @@
 import React from 'react';
 import { Button, ButtonGroup } from '@mui/material';
-
-interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-}
+import { PaginationProps } from '../types';
 
 const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
   const handleClick = (page: number) => {

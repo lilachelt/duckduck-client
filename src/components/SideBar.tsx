@@ -8,7 +8,7 @@ import '../css/basic.css';
 import '../css/sideBar.css';
 
 const Sidebar: React.FC = () => {
-  const { latestSearches } = useSelector((state: RootState) => state.reducer);
+  const { latestSearchesQueries } = useSelector((state: RootState) => state.reducer);
   const dispatch = useDispatch();
 
   const handleClick = (search: string): any => {
@@ -19,7 +19,7 @@ const Sidebar: React.FC = () => {
     <div>
       <h2>My latest searces:</h2>
       <ul>
-        {latestSearches.map((search:any, index:any) => (
+        {latestSearchesQueries.map((search:any, index:any) => (
           <li key={index}>
             <Typography className='last_search' onClick={()=> handleClick(search)} >{search}</Typography>
           </li>

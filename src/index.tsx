@@ -1,3 +1,5 @@
+  /* eslint-disable react/react-in-jsx-scope */
+
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';

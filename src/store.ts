@@ -5,7 +5,7 @@ import { AppState } from './types';
 export const initialState: AppState = {
   query: '',
   results: [],
-  latestSearches: [],
+  latestSearchesQueries: [],
 };
 
 const store = configureStore({

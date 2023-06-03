@@ -1,26 +1,13 @@
 export interface AppState {
     query: string;
     results: Topic[];
-    latestSearches: string[];
+    latestSearchesQueries: string[];
   }
-  
-  interface SearchAction {
-    type: 'SEARCH';
-    payload: {
-      query: string;
-      results: Topic[];
-    };
-  }
-  
-  export interface AddLatestSearchAction {
-    type: 'ADD_LATEST_SEARCH';
-    payload: {
-      search: string;
-    };
-  }
-  
- export type AppAction = SearchAction | AddLatestSearchAction;
-  
+  export interface PaginationProps {
+    currentPage: number;
+    totalPages: number;
+    onPageChange: (page: number) => void;
+  }  
  export interface Topic {
     url: string;
     title: string;
